@@ -26,7 +26,7 @@ main(void)
 	
 	if(line[0] == 'y' ) {
 		fprintf(stderr,"type in forms\n");
-		Xstrcpy(outname,"out.morph");
+		strcpy(outname,"out.morph");
 		finput = stdin;
 	} else {
 		if((finput=MorphFopen(NOMINDEX,"r")) == NULL) {
@@ -37,10 +37,10 @@ main(void)
 		fprintf(stderr,"word file? ");
 		gets(fname);
 		
-		Xstrcpy(inpname,fname);
+		strcpy(inpname,fname);
 		strcat(inpname,".words");
 		
-		Xstrcpy(outname,fname);
+		strcpy(outname,fname);
 		strcat(outname,".morph");
 
 		if((finput=fopen(inpname,"r")) == NULL) {

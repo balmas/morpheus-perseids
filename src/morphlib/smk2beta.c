@@ -56,10 +56,10 @@ conv(char *start, char *result)
 	 * make sure that any unaccented upper case char gets properly converted
 	 */
 	if(isupper(*s) && fromsmk) {
-		Xstrcpy(tmp,s+1);
+		strcpy(tmp,s+1);
 		*(s+1) = tolower(*s);
 		*s = '*';
-		Xstrcpy(s+2,tmp);
+		strcpy(s+2,tmp);
 	}
 	
 	while(*s) {
@@ -292,5 +292,5 @@ trap_upper(char *res, char *s)
 static 
 add_acc(char *s, int anum)
 {
-	Xstrcpy(s,Xlit_table[(int)( anum & (0377))]);
+	strcpy(s,Xlit_table[(int)( anum & (0377))]);
 }

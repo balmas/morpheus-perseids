@@ -102,7 +102,7 @@
     long (*LinLength)();
     long TxtLen();
     long IndLen();
-    char * Xstrcpy();
+    char * strcpy();
 
 
     int forw_count = 0;
@@ -397,7 +397,7 @@
 
         curlen = nextlen;
 
-        Xstrcpy( curlastline , nextlastline );
+        strcpy( curlastline , nextlastline );
         if( *nextb )
                 getlastline( &nextb[nextlen-1] , nextlastline );
 

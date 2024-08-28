@@ -75,9 +75,9 @@ int is_deriv;
 		while(ReadEnding(finput,&Gstr,maxstring)) {
 			char * sp;
 			sp = gkstring_of(&Gstr);
-			Xstrcpy(savestr,sp);
+			strcpy(savestr,sp);
 			if( has_diaeresis(sp) || hasaccent(sp) || has_quant(sp) ) {
-				Xstrcpy(markedstr,sp);
+				strcpy(markedstr,sp);
 			} else
 				markedstr[0] = 0;
 if( *sp < ' ' || *sp > 126 ) printf("bad line name [%s] sp [%s]\n", shortname , sp );
@@ -91,7 +91,7 @@ if(  ! *sp ) {
 	continue;
 }
 			if( is_deriv ) {
-				Xstrcpy(tmp,gkstring_of(&Gstr));
+				strcpy(tmp,gkstring_of(&Gstr));
 				strcat(tmp,"\t");
 				if( strcmp(gkstring_of(&Gstr),savestr) ) {
 					strcat(tmp,savestr);
@@ -115,7 +115,7 @@ if(  ! *sp ) {
 				fprintf(stderr,"ran out of memory at %d endings!\n", endcount );
 				return(-1);
 			}
-			Xstrcpy(*(endlines+endcount),tmp);
+			strcpy(*(endlines+endcount),tmp);
 			endcount++;
 		}
 /*
@@ -162,8 +162,8 @@ printf("output file:%s\n", shortname );
 			 * where the same key is repeated
 			 */
 			fprintf(foutput,"%s%s", DELIMITER, *(endlines+i) );
-		Xstrcpy(prevtag,curtag);
-		Xstrcpy(prevkey,*(endlines+i));
+		strcpy(prevtag,curtag);
+		strcpy(prevkey,*(endlines+i));
 	}
 
 	fprintf(foutput,"\n");

@@ -16,7 +16,7 @@ nextkey(char *keylist, char *nextkey)
 	while(*a && !isspace(*a)) *b++ = *a++;
 	*b = 0;
 	while(isspace(*a)) a++;
-	if( *a ) Xstrcpy(keylist,a);
+	if( *a ) strcpy(keylist,a);
 	else  *keylist = 0;
 	return(1);
 }

@@ -45,7 +45,7 @@ do_crasis(gk_string *gstring, char *crasis)
 		if( !strcmp(crasis, CrasTab[i].crasis ) ) {
 			saw_this_crasis++;
 			if( num == CrasTab[i].w_number && (gend & CrasTab[i].w_gender)  && (wcase & CrasTab[i].w_case) ) {
-				Xstrcpy(crasis,CrasTab[i].curstring);
+				strcpy(crasis,CrasTab[i].curstring);
 				return(1);
 			}
 		}
@@ -65,13 +65,13 @@ do_crasis(gk_string *gstring, char *crasis)
 /*
 	if( ! strcmp(crasis,"o(")) {
 		if( num == PLURAL && gend == FEMININE  && wcase == NOMINATIVE ) {
-			Xstrcpy(crasis,"ai(");
+			strcpy(crasis,"ai(");
 			return(1);
 		} else if( num == PLURAL && gend == MASCULINE && wcase == NOMINATIVE ) {
-			Xstrcpy(crasis,"oi(");
+			strcpy(crasis,"oi(");
 			return(1); 
 		} else if( num == SINGULAR && gend == FEMININE  && wcase == NOMINATIVE ) {
-			Xstrcpy(crasis,"h(");
+			strcpy(crasis,"h(");
 			return(1);
 		} else if( num == SINGULAR && gend == MASCULINE  && wcase == NOMINATIVE ) {
 			return(1);

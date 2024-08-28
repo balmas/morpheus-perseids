@@ -25,7 +25,7 @@ getlem(char *s, char *lem)
 	char *p;
 
 	if(*s == '-' ) {
-		Xstrcpy(lem,firsthalf);
+		strcpy(lem,firsthalf);
 		while(*lem) lem++;
 	} else
 		*lem = 0;
@@ -33,7 +33,7 @@ getlem(char *s, char *lem)
 	*lem = 0;
 
 	if((p=strchr(savelem,'-')) && *savelem != '-') {
-		Xstrcpy(firsthalf,savelem);
+		strcpy(firsthalf,savelem);
 		*(strchr(firsthalf,'-')) = 0;
 	}
 }

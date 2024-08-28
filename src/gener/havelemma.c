@@ -16,7 +16,7 @@ char * lemmastr;
 	
 	if( ! lemmentries ) 
 		if( ! init_lemmentries() ) return(0);
-	Xstrcpy(tmplemm,lemmastr);
+	strcpy(tmplemm,lemmastr);
 	stripquant(tmplemm);
 	stripdiaer(tmplemm);
 
@@ -50,7 +50,7 @@ init_lemmentries()
 		
 		p = &line[strlen(line)-1];
 		while(isspace(*p)&&p>line) *p-- = 0;  /* zap newline */
-		Xstrcpy(*(lemmentries+i),line);
+		strcpy(*(lemmentries+i),line);
 	}
 /*
 	fprintf(stderr,"%d lemmas first %s last %s\n", 

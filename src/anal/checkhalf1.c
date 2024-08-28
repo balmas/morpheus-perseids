@@ -21,7 +21,7 @@ checkhalf1(gk_word *Gkword, char *endkeys)
 /*
 printf("half1 stem preverb [%s] stem [%s] end [%s]\n", preverb_of(Gkword) , stem_of(Gkword), endstring_of(Gkword));
 */
-	Xstrcpy(savestem,stem);
+	strcpy(savestem,stem);
 	if( *stem == 'r'  && getbreath(stem) == NOBREATH && cur_lang() == GREEK) {
 		char tmp[MAXWORDSIZE];
 
@@ -123,7 +123,7 @@ printf("half1 stem preverb [%s] stem [%s] end [%s]\n", preverb_of(Gkword) , stem
 	 	stripbreath(stem);
 	 	diaerstem[0] = *stem;
 	 	diaerstem[1] = DIAERESIS;
-	 	Xstrcpy(diaerstem+2,stem+1);
+	 	strcpy(diaerstem+2,stem+1);
 	 	addbreath(diaerstem,cbreath);
 	 	set_stem(Gkword,diaerstem);
 		rval+=checkhalf2(Gkword,endkeys);
@@ -134,7 +134,7 @@ printf("half1 stem preverb [%s] stem [%s] end [%s]\n", preverb_of(Gkword) , stem
 		(AndDialect(dialect_of(Gkword),(Dialect)IONIC)>=0) &&
 		 cur_lang() != LATIN  ) {
 			add_morphflag(morphflags_of(Gkword),UNASP_PREVERB);
-			Xstrcpy(stem,savestem);
+			strcpy(stem,savestem);
 			stripbreath(stem);
 			addbreath(stem,ROUGHBR);
 			rval+=checkhalf2(Gkword,endkeys);

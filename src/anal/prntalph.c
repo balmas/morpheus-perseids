@@ -121,7 +121,7 @@ void	alpheiosDumpWord(gk_word* gkword, PrntFlags prntflags, FILE* fout)
 				if (*curlem)
 					fprintf(fout, "</entry>\n");
 
-				Xstrcpy(curlem, lemma_of(nxtAnalysis));
+				strcpy(curlem, lemma_of(nxtAnalysis));
 
 				/* start new entry */
 				fprintf(fout, "<entry>\n");

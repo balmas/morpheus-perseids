@@ -47,7 +47,7 @@ static SetSliceOfIndex(srch_state * srch, char * key);
         }
 
         InitBigind();
-        Xstrcpy( srch->sname , BIGINDNAME );
+        strcpy( srch->sname , BIGINDNAME );
         if( ! ThesaurOnline(BIGINDNAME) ) {
 		fprintf(stderr,"Big index not online\n");
                 return(-1);
@@ -99,14 +99,14 @@ static SetSliceOfIndex(srch_state * srch, char * key);
                 }
         }
         srch->rflags |= INDEX;
-        Xstrcpy(key,srch->key);
+        strcpy(key,srch->key);
 
         SetSliceOfIndex(srch , key );
         InitLinLookup(srch);
         for(i=0;NextLinPhrase(srch);i++) {
 		hits++;
                 gotp2[i] = srch->p2;
-                Xstrcpy(gotstrings[i],srch->gotstr);
+                strcpy(gotstrings[i],srch->gotstr);
         /*
          * buffer hits up so that you do not have to seek out of
          * the index file on each hit -- this should save seek
@@ -147,8 +147,8 @@ static
 			printf("\t%s", gotstrings[j] );
 			continue;
 		}
-                Xstrcpy( TmpSrch->key , gotstrings[j] );
-                Xstrcpy( TmpSrch->gotstr , gotstrings[j] );
+                strcpy( TmpSrch->key , gotstrings[j] );
+                strcpy( TmpSrch->gotstr , gotstrings[j] );
                 if( TmpSrch->rflags & THESAURUS ) {
                     thesaur(stdout,TmpSrch,gotp2[j],gotstrings[j]);
                 } else if ( TmpSrch->rflags & (TWOWORDS|SHOWOFFS )) {
@@ -236,7 +236,7 @@ static
 {
 	char curkey[64];
 
-	Xstrcpy(curkey,key);
+	strcpy(curkey,key);
         if( curkey[0] != '@' && ! isupper(curkey[0]) && curkey[0] != '*' ) {
                 srch->l_lno = 1;
                 srch->l_start = 0;
@@ -245,7 +245,7 @@ static
 
 /*
 	if( *(curkey+1) == '*') {
-		Xstrcpy(curkey+1,curkey+2);
+		strcpy(curkey+1,curkey+2);
 		*(curkey+1) = toupper(*(curkey+1));
 	}
 */
@@ -271,7 +271,7 @@ static
                         ParseWlistLine(srch,prev_line,cur_line);
                         goto finish;
                 }
-                Xstrcpy(prev_line,cur_line);
+                strcpy(prev_line,cur_line);
         }
         ParseWlistLine(srch,prev_line,NULL);
 
@@ -297,7 +297,7 @@ char *s;
 	char * a = s;
 	while(*a&&!isalpha(*a)) a++;
 	*s = *a;
-	Xstrcpy(a,a+1);
+	strcpy(a,a+1);
 }
 
 /*
@@ -319,7 +319,7 @@ static
 		char * a = s;
 		while(*a&&!isalph(*a)) a++;
 		*s = *a;
-		Xstrcpy(a,a+1);
+		strcpy(a,a+1);
 */
 	}
         if( isupper( *t ) ) *t = tolower( *t );
@@ -415,10 +415,10 @@ if( ThFreq == 0 ) {
 	fflush(fout);
 
 
-        Xstrcpy( gots , srch->gotstr );
+        strcpy( gots , srch->gotstr );
                 for(i=0;i<ThFreq;i++) {
-                        Xstrcpy( srch->gotstr , gots );
-                        Xstrcpy( srch->key , gots );
+                        strcpy( srch->gotstr , gots );
+                        strcpy( srch->key , gots );
                         ThDumprec(  fout , srch , i , string );
                 }
                 fadd_newline(fout);
@@ -444,7 +444,7 @@ if( ThFreq == 0 ) {
         if( gotpA ) {
                 tmpR.p2 = ThTlgp2[index];
                 tmpR.freq = x;
-                Xstrcpy( tmpR.key , s );
+                strcpy( tmpR.key , s );
         } else {
                 tmpR.p2 = tmpR.freq = 0;
         }
@@ -557,7 +557,7 @@ static
         }
                 
                 
-        Xstrcpy( s , authtab[ n ] );
+        strcpy( s , authtab[ n ] );
         return( 1 );
 }
 

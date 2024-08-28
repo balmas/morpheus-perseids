@@ -22,7 +22,7 @@ static gk_string BlankGstr;
 	gk_string * fix_eta();
 	int saw_vowel = 0;
 	
-	Xstrcpy(savestr,havestr);
+	strcpy(savestr,havestr);
 	s = savestr;
 
 
@@ -122,7 +122,7 @@ static
 	while(fgets(line,sizeof line,f)) {
 		char curendstr[MAXWORDSIZE];
 
-		Xstrcpy(savestem,curstr);
+		strcpy(savestem,curstr);
 
 		if( is_blank(line) )
 			continue;
@@ -144,7 +144,7 @@ static
 {
 	char savestem[MAXWORDSIZE];
 
-	Xstrcpy(savestem,stem);
+	strcpy(savestem,stem);
 
 	/*
 	 * at this point check to see if you want this ending
@@ -282,7 +282,7 @@ printf("gks [%s] lastc [%c] stem [%s] endstr [%s]\n", gkstring_of(gstr), lastc ,
 	
 	zap_extra_lmarks(stem);
 	if( Is_lvwl(*(lastn(stem,1))) && *endstr == HARDLONG ) {
-		Xstrcpy(endstr,endstr+1);
+		strcpy(endstr,endstr+1);
 	}
 }
 
@@ -290,7 +290,7 @@ zap_extra_lmarks(char *s)
 {
 	while(*s) {
 		if( Is_lvwl(*s) && *(s+1) == HARDLONG ) {
-			Xstrcpy(s+1,s+2);
+			strcpy(s+1,s+2);
 		}
 		s++;
 	}

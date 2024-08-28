@@ -25,7 +25,7 @@ cmpend(char *word, char *ending, char *stem)
 		s1--; s2--;
 	}
 	if( s2 == ending ) {
-		Xstrcpy(stem,word);
+		strcpy(stem,word);
 		*(stem + (s1-word)) = 0;
 		return(1);
 	}

@@ -194,8 +194,8 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 		return(0);
 	} 
 
-	Xstrcpy(savestr, haveseen );
-	Xstrcpy(savecur, curstring );
+	strcpy(savestr, haveseen );
+	strcpy(savecur, curstring );
     curbreath = getbreath(savecur);
     stripbreath(savecur);
 
@@ -203,7 +203,7 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 			char tmp[MAXWORDSIZE];
 
 			tmp[0] = 0;
-			Xstrcpy(tmp,cooked);
+			strcpy(tmp,cooked);
 			p1 = tmp+strlen(tmp)-1;
 			strcat(tmp,savecur+strlen(raw));
 			/*
@@ -225,10 +225,10 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 			 	*p1++ = ACUTE;
 			 	*p1++ = SUBSCR;
 			 	if( *p1 == HARDLONG ) /* if  "aoi_" contracts to "w|", strip the "_"*/
-			 		Xstrcpy(p1,p1+1);
+			 		strcpy(p1,p1+1);
 			 }
 			strcat(savestr,tmp);
-			Xstrcpy(gkstring_of(gstr),savestr);
+			strcpy(gkstring_of(gstr),savestr);
 			if( cur_lang() != LATIN ) addbreath(gkstring_of(gstr),curbreath);
 
 			set_dialect(gstr,curdial);
@@ -260,7 +260,7 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 	 *
 	 */
 
-			Xstrcpy(tmp,savestr);
+			strcpy(tmp,savestr);
 			strcat(tmp,cooked);
 			strcat(tmp,savecur+strlen(raw));
 			p1 = tmp;
@@ -272,7 +272,7 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 			while(*p1) {
 				if( *p1 == SUBSCR && *(p1+1) == HARDLONG ) {
 					p1++;
-					Xstrcpy(p1,p1+1);
+					strcpy(p1,p1+1);
 				}
 				p1++;
 			}
@@ -292,7 +292,7 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 	 * not i(/esi.
 	 */
 
-			Xstrcpy(gkstring_of(gstr),tmp);
+			strcpy(gkstring_of(gstr),tmp);
 			if( cur_lang() != LATIN ) addbreath(gkstring_of(gstr),curbreath);
 			set_dialect(gstr,curdial);
 			add_geogregion(gstr,gregion);

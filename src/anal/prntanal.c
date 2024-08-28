@@ -93,7 +93,7 @@ int lemmflag;
     Anal = analysis_of(Gkword)+i;
     if( strcmp(curlem,lemma_of(Anal) ) ) {
       difflems ++;
-      Xstrcpy(curlem,lemma_of(Anal));
+      strcpy(curlem,lemma_of(Anal));
     }
     if( (strchr(lemma_of(Anal),'-') == NULL ) ) {
       goodanals++;
@@ -127,7 +127,7 @@ DumpLemmaInfo(gk_word *Gkword, PrntFlags prntflags, FILE *f)
       if( (strchr(lemma_of(Anal),'-') == NULL ) || (goodanals == totanal_of(Gkword)) ) {
 	fprintf(f,"%s\n",  lemma_of(Anal) );
       }
-      Xstrcpy(curlem,lemma_of(Anal));
+      strcpy(curlem,lemma_of(Anal));
     }
   }
 }
@@ -161,7 +161,7 @@ PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
 	sprintf(wtmp,"%s\t%s %d\t", rawword_of(Gkanal),  lemma_of(Gkanal) ,curan );
       Xstrncat(pbuf,wtmp,MAXANALYSES * 128);
       curan = 0;
-      Xstrcpy(wtmp,"\n");
+      strcpy(wtmp,"\n");
     }
     goto finish;
   }
@@ -286,7 +286,7 @@ dump_all_anals(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
 	if(  strcmp(rawword_of(Anal),workword_of(Anal)) ) {
 	char tmp[MAXWORDSIZE];
 	
-	Xstrcpy(tmp,workword_of(Anal));
+	strcpy(tmp,workword_of(Anal));
 	stripquant(tmp);
 	
 	fprintf(fout,"%s", strcmp(rawword_of(Anal),tmp) ?  tmp : "" );
@@ -299,7 +299,7 @@ dump_all_anals(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
 	  fprintf(fout,"%s\n",printedwork ? "\t" : "", lemma_of(Anal) );
 	  */
 	DumpPerseusAnalysis(Gkword,prntflags,Anal,fout,i+1);
-	Xstrcpy(curlem,lemma_of(Anal));
+	strcpy(curlem,lemma_of(Anal));
       }
       continue;
     }
@@ -373,7 +373,7 @@ DumpPerseusAnalysis(
   if(  strcmp(rawword_of(anal),workword_of(anal)) ) {
     char tmp[MAXWORDSIZE];
 
-    Xstrcpy(tmp,workword_of(anal));
+    strcpy(tmp,workword_of(anal));
     /* grc 2/7/97 -- don't punt the quantity
        stripquant(tmp);
        */
@@ -542,7 +542,7 @@ DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FILE *f
   JakeSprintGkFlags(anal,tmp," "," ",1);
 
   if(preverb_of(anal)[0] )	{
-    Xstrcpy(workw,preverb_of(anal) );
+    strcpy(workw,preverb_of(anal) );
     strcat(workw,"-");
   }
   if(aug1_of(anal)[0] )	{

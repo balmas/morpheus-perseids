@@ -73,7 +73,7 @@ FILE * f;
 	if( argc == 1 )
 		fin = stdin;
 	else {
-		Xstrcpy( base , argv[1] );
+		strcpy( base , argv[1] );
 		strcat( base , ".tlg" );
 		if( (fin = fopen( base , "r" )) == NULL ) {
 			fprintf(stderr,"could not open %s\n", base );
@@ -86,9 +86,9 @@ FILE * f;
 		exit(-1);
 	}
 
-	Xstrcpy( basename , argv[1] );
+	strcpy( basename , argv[1] );
 
-	Xstrcpy( base , argv[1] );
+	strcpy( base , argv[1] );
 	strcat( base , ".words" );
 	fgreek = fopen( base , "w" );
 	if( fgreek == NULL ) {
@@ -96,10 +96,10 @@ FILE * f;
 		exit( 0 );
 	}
 
-	Xstrcpy( commonfile , argv[1] );
+	strcpy( commonfile , argv[1] );
 	strcat( commonfile , ".comwords" );
 
-	Xstrcpy( workfile , argv[1] );
+	strcpy( workfile , argv[1] );
 	strcat( workfile , ".workfile" );
 	if( (f=fopen(workfile,"w")) == NULL ) {
 		fprintf(stderr,"Could not open %s\n", workfile );
@@ -110,7 +110,7 @@ FILE * f;
 	unlink("auths.common");
 	unlink("works.common");
 	
-	Xstrcpy( authfile , argv[1] );
+	strcpy( authfile , argv[1] );
 	strcat( authfile , ".auth" );
 	f = fopen( authfile , "w" );
 	if( f == NULL ) {
@@ -119,7 +119,7 @@ FILE * f;
 	}
 	fclose( f );	
 
-	Xstrcpy( filefile , argv[1] );
+	strcpy( filefile , argv[1] );
 	strcat( filefile , ".file" );
 	f = fopen( filefile , "w" );
 	if( f == NULL ) {
@@ -128,7 +128,7 @@ FILE * f;
 	}
 	fclose( f );
 
-	Xstrcpy( base , argv[1] );
+	strcpy( base , argv[1] );
 	strcat( base , ".roman" );
 	froman = fopen( base , "w" );
 	if( froman == NULL ) {
@@ -136,7 +136,7 @@ FILE * f;
 		exit( 0 );
 	}
 
-	Xstrcpy( base , argv[1] );
+	strcpy( base , argv[1] );
 	strcat( base , ".broken" );
 	fbroken = fopen( base , "w" );
 	if( fbroken == NULL ) {
@@ -446,7 +446,7 @@ register char * s;
 				else
 					authcnt = bytcnt;
 			}
-			Xstrcpy( oldanum , anum );
+			strcpy( oldanum , anum );
 			if( *s != '"' ) {
 				fprintf(stderr,"Bad format: %s\n", startp );
 			}
@@ -457,8 +457,8 @@ register char * s;
 				dumpwork();
 			}
 			wkname[0] = 0;
-			Xstrcpy( oldwknum , wknum );
-			Xstrcpy( oldwkname , wkname );
+			strcpy( oldwknum , wknum );
+			strcpy( oldwkname , wkname );
 			nworks++;
 
 			s++;
@@ -637,7 +637,7 @@ int i;
 
 /*
 if( nworks == 1 && endwork )
-	{ Xstrcpy( oldwknum , wknum ); strcpy( oldwkname , wkname ); }
+	{ strcpy( oldwknum , wknum ); strcpy( oldwkname , wkname ); }
 */
 
 /*
@@ -743,7 +743,7 @@ zap2ndacc(char *s)
 	while(*s) {
 		if(*s=='//' || *s == '=' ) {
 			if(hasacc ) {
-				Xstrcpy(s,s+1);
+				strcpy(s,s+1);
 				continue;
 			}
 			hasacc++;

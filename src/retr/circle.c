@@ -93,17 +93,17 @@
                         printf("%s\n\n", query->ssobuf );
                 }
                 hits++;
-                Xstrcpy( centerw , tmp_srch->gotstr );
+                strcpy( centerw , tmp_srch->gotstr );
                 if( Pmatch->moffset > tmp_srch->pword ) {
                         tmp_srch->pword = centerp;
-                        Xstrcpy( tmp_srch->gotstr , centerw );
+                        strcpy( tmp_srch->gotstr , centerw );
                         tmp_srch->pw2 = Pmatch->moffset;
-                        Xstrcpy( tmp_srch->gotstr2 , Pmatch->mstring );
+                        strcpy( tmp_srch->gotstr2 , Pmatch->mstring );
                 } else {
                         tmp_srch->pw2 = centerp;
                         tmp_srch->pword = Pmatch->moffset;
-                        Xstrcpy( tmp_srch->gotstr2 , centerw );
-                        Xstrcpy( tmp_srch->gotstr , Pmatch->mstring );
+                        strcpy( tmp_srch->gotstr2 , centerw );
+                        strcpy( tmp_srch->gotstr , Pmatch->mstring );
                 }
                 workbyoff(tmp_srch,tmp_srch->pword);
                 fput_rec( stdout, tmp_srch , " " );

@@ -24,7 +24,7 @@ mySFGetFile(char *filename)
 	GetVol(volName,&vRefNum);
 	PtoCstr(volName);
 	printf("volName [%s]\n", volName );
-	Xstrcpy(filename,editFile.fName);
+	strcpy(filename,editFile.fName);
 	PtoCstr(filename);
 	return(1);
 }

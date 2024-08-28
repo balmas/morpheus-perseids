@@ -60,7 +60,7 @@ main()
 			   else {
 
 		    		qline = malloc( strlen(cline) + 1);
-				Xstrcpy( qline,cline);
+				strcpy( qline,cline);
 				if ( rspush( &qline,rstack) == FAILURE) 
 				printf("stack full\n");
 	   	           }

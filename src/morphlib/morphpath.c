@@ -17,7 +17,7 @@ void	SetMorphPath(const char* a_path)
 	if (a_path)
 	{
 		f_morphPath = malloc(strlen(a_path) + 1);
-		Xstrcpy(f_morphPath, a_path);
+		strcpy(f_morphPath, a_path);
 	}
 }
 

@@ -15,6 +15,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  * various functions
  */
     char * Calloc();
+    char * strcpy();
     char * strncpy();
     char * NextField();
 
@@ -49,7 +50,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
                 return( -1 );
             }
         }
-        Xstrcpy( curauth , srch->sname );
+        strcpy( curauth , srch->sname );
         if( ! OpWorkfFile(srch->sname) ) {
 		fprintf(stderr,"could not find %s.workfile\n", srch->sname);
 		return(-1);
@@ -276,7 +277,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  *	Make sure every work has a name -- vjh 9/87
  */
 	if ( swk->wkname[0] == '\0' )  {
-		Xstrcpy( swk->wkname, "wk" );
+		strcpy( swk->wkname, "wk" );
 		sprintf( swk->wkname+2, "%03d", swk->wknum );
 	}
 }

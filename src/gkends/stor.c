@@ -173,7 +173,7 @@ hyphtodiaer(char *news)
 		
 	while(*s) {
 		if(*s=='-' ) {
-			Xstrcpy(s,s+1);
+			strcpy(s,s+1);
 			if( is_diphth(s,news) ) {
 				cinsert(DIAERESIS,s+1);
 			}

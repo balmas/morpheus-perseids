@@ -39,7 +39,7 @@ char * argv[];
 		fullconj = 1;
 	}
 	
-	Xstrcpy(filename,"conjfile");
+	strcpy(filename,"conjfile");
 	if( (f=fopen(filename,"r")) == NULL ) {
 		fprintf(stdout,"Filename?\n" );
 

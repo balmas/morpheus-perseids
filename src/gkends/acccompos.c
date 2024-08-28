@@ -49,7 +49,7 @@ printf("start with p [%s]\n", p );
 
 	if( s ) {
 		
-		Xstrcpy(prefword,p);
+		strcpy(prefword,p);
 		p = s+1;
 		set_gkstring(gstr,"");
 		add_morphflag(morphflags_of(gstr),NEEDS_ACCENT);
@@ -58,7 +58,7 @@ printf("start with p [%s]\n", p );
 		s = strchr(prefword,'!');
 		*(s+1) = 0;
 	} else {
-		Xstrcpy(saveword,p);
+		strcpy(saveword,p);
 		set_gkstring(gstr,"");
 		p = saveword;
 	}
@@ -94,9 +94,9 @@ printf("start with p [%s]\n", p );
 		if(word[0] ) {
 			if( prefword[0] ) {
 				strcat(prefword,word);
-				Xstrcpy(word,prefword);
+				strcpy(word,prefword);
 			}
-			Xstrcpy(gkstring_of(gstr),word);
+			strcpy(gkstring_of(gstr),word);
 		}
 
 
@@ -104,7 +104,7 @@ printf("start with p [%s]\n", p );
 		FixRecAcc(gkform,morphflags_of(gstr),p);
 		if( prefword[0] ) {
 			strcat(prefword,p);
-			Xstrcpy(p,prefword);
+			strcpy(p,prefword);
 		}
 	}  
 

@@ -4,19 +4,12 @@
 #include "xstrings.proto.h"
 
 int
-Xstrcpy(char *s1, const char *s2)
-{
-while (*s1++ = *s2++);
-return(1);
-}
-
-int
 Xstrncpy(char *s1, const char *s2, size_t len)
 {
 /*
 strncpy(s1,s2,len);
 */
-Xstrcpy(s1,s2);
+strcpy(s1,s2);
 return(1);
 }
 	
@@ -38,11 +31,11 @@ Ystrncpy(char *s1, const char *s2, size_t len)
 		}
 		strncpy(p,s2,(size_t)len);
 		*(p+len-1) = 0;
-		Xstrcpy(s1,p);
+		strcpy(s1,p);
 		xFree(p,"Xstrncpy buffer");
 		fprintf(stderr,"%d bytes into %d:%s\n", Xstrlen(s2), len ,s2);
 	} else
-		Xstrcpy(s1,s2);
+		strcpy(s1,s2);
 }
 
 
@@ -75,7 +68,7 @@ Xstrlen(const char *s)
 }
 
 /*
-Xstrcpy(char *s1, const char *s2)
+strcpy(char *s1, const char *s2)
 {
 	while(*s2) {
 		*s1++ = *s2++;

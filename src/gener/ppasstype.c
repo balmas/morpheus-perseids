@@ -13,7 +13,7 @@ gk_string * gstr;
 	
 	
 	if( ! get_ppasstype(origstem,newstem,stemname) ) return;
-	Xstrcpy(origstem,newstem);
+	strcpy(origstem,newstem);
 	set_stemtype(gstr,GetStemNum(stemname));
 }
 
@@ -27,8 +27,8 @@ char * stemname;
 	
 	if( Is_vowel(*(lastn(stem,1)))  )
 		return(0);
-	Xstrcpy(newstem,stem);
-	Xstrcpy(stemname,"perfp_vow");
+	strcpy(newstem,stem);
+	strcpy(stemname,"perfp_vow");
 	if( ! ppass_table ) {
 		ppass_table = load_euph_tab(PPASSLIST,&nppass);
 
@@ -38,7 +38,7 @@ char * stemname;
 		p = gkstring_of(ppass_table+i);
 		if( ends_in(stem,p) ) {
 			*(lastn(newstem,strlen(p))) = 0;
-			Xstrcpy(stemname,p+MAXSUBSTRING);
+			strcpy(stemname,p+MAXSUBSTRING);
 
 			return(1);
 		}

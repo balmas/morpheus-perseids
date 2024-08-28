@@ -26,7 +26,7 @@ passVal()
         if (!yylval.string)
                 fprintf(stderr, "Out of memory for %s\n", line );
         else
-                Xstrcpy( yylval.string, line );
+                strcpy( yylval.string, line );
 /*        fprintf(stderr, "%s\n",yylval.string);*/
 }
 

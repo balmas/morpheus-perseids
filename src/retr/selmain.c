@@ -57,7 +57,7 @@ char * argv[];
                 switch (argv[0][1]) {
 
                 case 'o':
-                        Xstrcpy( srch->savefile , &argv[0][2] );
+                        strcpy( srch->savefile , &argv[0][2] );
                         continue;
 
 		case 'S':
@@ -147,8 +147,8 @@ char * argv[];
 
                 case 'p':
                         srch->rflags |= THESAURUS|INDEX ;
-                        Xstrcpy( autharr[0] , BIGINDNAME );
-                        Xstrcpy( srch->sname , BIGINDNAME );
+                        strcpy( autharr[0] , BIGINDNAME );
+                        strcpy( srch->sname , BIGINDNAME );
                         nauths = 1;
                         continue;
                 default:
@@ -158,7 +158,7 @@ char * argv[];
 
         
         if( !wflag ) {
-        Xstrcpy( wordarr[nwords++] , *argv );
+        strcpy( wordarr[nwords++] , *argv );
         argc--; argv++;
         }
 

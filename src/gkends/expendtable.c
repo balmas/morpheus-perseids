@@ -45,8 +45,8 @@ static gk_string Blnk;
 
 	if( maintable ) {
 		if( *s == DIRCHAR ) s++;
-		Xstrcpy(fname,s);
-		Xstrcpy(basename,s);
+		strcpy(fname,s);
+		strcpy(basename,s);
 /*
 		if( formcode == DODERIV ) strcat(basename," is_deriv"); 
 		else if( formcode == DOWORD ) strcat(basename," indeclform"); 
@@ -93,7 +93,7 @@ static gk_string Blnk;
 			return(-1);
 		}
 	} else {
-		Xstrcpy(fname,s);
+		strcpy(fname,s);
 		basename[0] = 0;
 		if(! (finput=fopen(fname,"r"))) {
 			fprintf(stderr,"could not open %s for reading\n", fname );
